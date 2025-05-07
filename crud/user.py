@@ -1,12 +1,14 @@
 from sqlalchemy.orm import Session
 from models.user import User
 from schemas.user_schema import UserCreate, UserLogin
+from hashing import verify_password, hash_password
 
 def get_users(db: Session):
     return db.query(User).all()
 
 def create_user(db: Session, user: UserCreate):
-    user = User(name=user.name, email=user.email, password=user.password)
+    hashed_password = hash_password(user.password)
+    user = User(name=user.name, email=user.email, password=hashed_password)
     db.add(user)
     db.commit()
     db.refresh(user)
@@ -17,7 +19,7 @@ def check_credentials(db: Session, email: str, password: str):
     user_data = db.query(User).filter(User.email == email).first()
     if(not user_data):
         return None
-    if(user_data.password == password):
+    if verify_password(password, user_data.password):
         return user_data
     else:
         return None

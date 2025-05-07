@@ -70,7 +70,7 @@ def get_url_stats(db: Session, id: str):
     url = db.query(URL).filter(URL.id == id).first()
     if(not url):
         return None
-    return {"clicks": url.clicks}
+    return {"clicks": url.clicks, "created_at": url.created_at}
 
 def get_user_urls(db: Session, user_id: str):
     url_list = db.query(URL).filter(URL.user_id == user_id).all()
