@@ -1,0 +1,47 @@
+POST http://127.0.0.1:8000/url/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3SzdPWkBleGFtcGxlLmNvbSIsImV4cCI6MTc0NjYxODkyOX0.i6Pm4dGAzlKRgGTQwlQKlBr86eqqYMHRtHr-_1w3klA
+
+{"long_url": "https://www.twitch.tv/"}
+
+###
+GET http://127.0.0.1:8000/7dc330
+
+###
+GET http://127.0.0.1:8000/url/get_urls
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3SzdPWkBleGFtcGxlLmNvbSIsImV4cCI6MTc0NjYxODkyOX0.i6Pm4dGAzlKRgGTQwlQKlBr86eqqYMHRtHr-_1w3klA
+
+###
+PUT http://127.0.0.1:8000/url/update/e673acd1-dac5-4a7c-a8ff-908cd183e2ba
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3SzdPWkBleGFtcGxlLmNvbSIsImV4cCI6MTc0NjYxODkyOX0.i6Pm4dGAzlKRgGTQwlQKlBr86eqqYMHRtHr-_1w3klA
+
+{"long_url": "https://www.youtube.com/"}
+
+###
+DELETE http://127.0.0.1:8000/url/delete/e673acd1-dac5-4a7c-a8ff-908cd183e2ba
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3SzdPWkBleGFtcGxlLmNvbSIsImV4cCI6MTc0NjYxODkyOX0.i6Pm4dGAzlKRgGTQwlQKlBr86eqqYMHRtHr-_1w3klA
+
+###
+GET http://127.0.0.1:8000/url/stats/e673acd1-dac5-4a7c-a8ff-908cd183e2ba
+
+###
+POST http://127.0.0.1:8000/auth/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "wK7OZ@example.com",
+    "password": "password"
+}
+
+###
+POST http://127.0.0.1:8000/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+username=wK7OZ@example.com&password=password
+
+
+###
+POST http://127.0.0.1:8000/auth/refresh?refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ3SzdPWkBleGFtcGxlLmNvbSIsImV4cCI6MTc0NDAyNzQwOH0.4F2nbJ0O46c2OZHw4pb38luqu45RE9O30S3NyqCoLX8
