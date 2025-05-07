@@ -23,7 +23,10 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 origins = [
     "http://localhost",
     "http://localhost:8080",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://url-shortener-frontend-six-roan.vercel.app/register",
+    "https://url-shortener-frontend-git-main-tomiacs-projects.vercel.app/",
+    "https://url-shortener-frontend-haprn84v3-tomiacs-projects.vercel.app/"
 ]
 
 app.add_middleware(
